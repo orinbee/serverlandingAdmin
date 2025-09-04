@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px; /* Rộng hơn để hiển thị bảng */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Copy style của menu từ file style.css */
+.admin-nav {
+    background-color: #343a40;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.admin-nav .container {
+    padding: 0 30px;
+    background-color: transparent;
+    box-shadow: none;
+}
+.admin-nav a {
+    color: #f8f9fa; text-decoration: none; margin-right: 20px;
+    font-size: 16px; padding: 8px 12px; border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.admin-nav a:hover { background-color: #495057; }
+.admin-nav a.active { background-color: #007bff; font-weight: bold; }
+
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#exportBtn {
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+#exportBtn:hover { background-color: #138496; }
+
+
+/* Table styling */
+.table-container {
+    overflow-x: auto; /* Giúp cuộn ngang trên màn hình nhỏ */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+thead {
+    background-color: #007bff;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}/* === Copy style của menu từ file style.css (ĐÃ SỬA LỖI) === */
+.admin-nav {
+    background-color: #343a40;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+/* === SỬA LỖI Ở ĐÂY === */
+.admin-nav .container {
+    padding: 0 30px;
+    background-color: transparent; /* Nền trong suốt */
+    box-shadow: none;               /* Bỏ đổ bóng */
+}
+
+.admin-nav a {
+    color: #f8f9fa; 
+    text-decoration: none; 
+    margin-right: 20px;
+    font-size: 16px; 
+    padding: 8px 12px; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.admin-nav a:hover { 
+    background-color: #495057; 
+}
+.admin-nav a.active { 
+    background-color: #007bff; 
+    font-weight: bold; 
+}
+
+.product-status.closed {
+    background-color: #ef4444; /* Màu đỏ */
+}
+
+/* Style cho nút bị vô hiệu hóa (disabled) */
+.register-btn:disabled {
+    background-color: #9ca3af; /* Màu xám */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.register-btn:disabled:hover {
+    background-color: #9ca3af; /* Giữ nguyên màu xám khi hover */
+}

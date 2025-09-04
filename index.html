@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị Sản Phẩm</title>
+    <link rel="stylesheet" href="./asset/css/style.css"> <!-- Giữ file CSS gốc -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="sidebar fixed inset-y-0 left-0 w-64 bg-gray-800 text-white p-6 md:static md:flex-shrink-0">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl font-bold">Quản Trị</h2>
+            </div>
+            <nav>
+                <a href="admin.html" class="block py-2 px-4 rounded bg-gray-900 text-white mb-2">Quản lý Sản phẩm</a>
+                <a href="registrations.html" class="block py-2 px-4 rounded hover:bg-gray-700">Quản lý Đăng ký</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow p-4 flex justify-between items-center">
+                <button class="md:hidden text-gray-600" onclick="toggleSidebar()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <h1 class="text-2xl font-semibold">Trang Quản lý Sản Phẩm</h1>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="container">
+                    <!-- Form để thêm/cập nhật sản phẩm (giữ nguyên HTML gốc) -->
+                    <form id="productForm">
+                        <h2>Thêm Sản Phẩm Mới</h2>
+                        <input type="hidden" id="productId">
+                        <label for="productImageUrl">Link Ảnh Bìa</label>
+                        <input type="text" id="productImageUrl" placeholder="Dán link ảnh vào đây (ví dụ: https://.../image.png)" required>
+                        <label for="productTitle">Tiêu Đề Sản Phẩm</label>
+                        <input type="text" id="productTitle" placeholder="Nhập tiêu đề..." required>
+                        <label for="productDesc">Mô Tả Ngắn</label>
+                        <textarea id="productDesc" rows="4" placeholder="Nhập mô tả ngắn gọn..." required></textarea>
+                        <label for="productFields">Lĩnh Vực (cách nhau bởi dấu phẩy)</label>
+                        <input type="text" id="productFields" placeholder="Ví dụ: Công nghệ, Y sinh, Giáo dục..." required>
+                        <label for="productStatus">Trạng Thái</label>
+                        <select id="productStatus">
+                            <option value="public">Sẵn hàng</option>
+                            <option value="hidden">Hết hàng</option>
+                        </select>
+                        <button type="submit">Lưu Sản Phẩm</button>
+                    </form>
+
+                    <!-- Khu vực hiển thị danh sách sản phẩm (giữ nguyên HTML gốc) -->
+                    <div class="product-list-container">
+                        <h2>Danh Sách Sản Phẩm</h2>
+                        <div id="productList">
+                            <!-- Các sản phẩm sẽ được JS chèn vào đây -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Firebase SDK Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- Script for Sidebar Toggle -->
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+    </script>
+
+    <!-- Your Script -->
+    <script src="./asset/js/main.js"></script>
+</body>
+</html>
